@@ -1,0 +1,18 @@
+.home-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0px 100px;
+    box-sizing: border-box;
+}
+
+.home-box div {
+    width: 50%;
+}
+
+.home-box--left {
+    font-size: 40px;
+    text-align: left;
+}

@@ -1,0 +1,132 @@
+.billdetails__card {
+  background-color: white;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+  min-height: 400px;
+  margin: 100px 0;
+  border-radius: 20px;
+  animation-name: popUp;
+  animation-duration: 1s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+/* /////////////////////////////////////// */
+
+.bill__header h1, .bill__header p {
+    margin: 0;
+}
+
+.bill__header h1 {
+    font-size: 3vw;
+}
+
+.bill__header {
+    margin-bottom: 20px;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    font-size: 2.5vw;
+    text-align: left;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table p {
+    margin: 0;
+}
+
+.table .category{
+     max-width: 60%;
+ }
+
+ .table .amount{
+    max-width: 40%;
+}
+
+.table-head {
+    background: linear-gradient(to bottom right, #11998e, #38ef7d);
+    border-radius: 15px 15px 0px 0px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:20px;
+    width: 100%;
+}
+
+.table-row p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-body .table-row {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-body .table-row:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table-body .table-row:last-of-type{
+    border-bottom: 2px solid #11998e;
+}
+
+.table-foot .table-row:first-of-type {
+    border-bottom: 1px solid #dddddd;
+}
+
+
+.table-body p, .table-head p, .table-foot p{
+    padding: 12px 20px;
+}
+
+.input-container {
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.table input {
+    font-size: 2.5vw;
+    overflow: hidden;
+}
+
+.input-container .category {
+    margin-left: 10px;
+}
+.table-foot {
+    margin: 0;
+}
+
+.bill__footer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+    gap: 5px;
+}
+
+.bill__footer a {
+    color: black;
+}
+
+.bill__footer a:hover {
+    color: #11998e;
+}
+
+.bill__footer--right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-image: url("./images/background.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .App-logo {
@@ -26,6 +31,18 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.flex-col {
+  flex-direction: column;
+  gap: 20px;
 }
 
 @keyframes App-logo-spin {

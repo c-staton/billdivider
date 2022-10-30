@@ -1,0 +1,19 @@
+.billcard {
+  background-color: white;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px 40px;
+  height: 100px;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  color: black;
+}
+
+.billcard:hover {
+  transform: scale(0.95);
+}

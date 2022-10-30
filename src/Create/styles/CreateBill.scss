@@ -1,0 +1,148 @@
+$headerSize: 60px;
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #000;
+$gray: #9b9b9b;
+
+.card {
+  background-color: white;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 40px;
+  height: 400px;
+  border-radius: 20px;
+  animation-name: popUp;
+  animation-duration: 1s;
+  margin-bottom: 150px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  #{&}__header {
+    font-size: $headerSize;
+    margin-bottom: 20px;
+
+    .ordinal {
+      background: linear-gradient(to bottom right, $primary, $secondary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+@keyframes popUp {
+  from {transform: scale(0.3);}
+  to {transform: scale(1);}
+}
+
+/* CSS */
+.form-btn {
+  margin: 20px 0;
+  background: linear-gradient(to bottom right, $primary, $secondary);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  transition: all .4s ease-in-out;
+}
+
+.create-btn:not([disabled]):focus {
+  outline: none;
+}
+
+.create-btn:not([disabled]):hover {
+  transform: scale(0.9);
+}
+
+.finishBtn:not([disabled]):focus {
+  outline: none;
+}
+
+.finishBtn:not([disabled]):hover {
+  transform: rotate(360deg);
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+}
+
+.form__field:focus, .form__field:valid {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+
+.card__footer {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__footer a {
+  color: $primary;
+}
