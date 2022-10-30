@@ -1,0 +1,25 @@
+.auth h1 {
+    margin: 0;
+}
+
+.auth__btn {
+    transition: all .4s ease-in-out;
+}
+
+.auth__btn:hover {
+    transform: scale(1.2);
+}
+
+.login__footer p {
+    margin: 0;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.login__footer a {
+    color: black;
+}
+
+.login__footer a:hover {
+    color: #11998e;
+}

@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BillsApi from "../Api";
 import dateFormat from "dateformat";
 import "./MyBills.css";
 import { Link } from "react-router-dom";
+import UserContext from "../auth/UserContext";
 
 const MyBills = () => {
 	const [bills, setBills] = useState([]);
 
-	//get current user username
-	const username = "cstaton";
+	const { currentUser } = useContext(UserContext);
 
 	useEffect(() => {
 		const getBills = async (username) => {
 			const result = await BillsApi.getBillsByUsername(username);
 			setBills(result);
 		};
-		getBills(username);
-	}, [username]);
+		getBills(currentUser.username);
+	}, [currentUser]);
 
 	return (
 		<div className="wrap flex-col">
@@ -33,7 +33,11 @@ const MyBills = () => {
 						.slice(0)
 						.reverse()
 						.map((b) => (
-							<Link className="bill__li" to={`/bills/${username}/${b.id}`}>
+							<Link
+								className="bill__li"
+								to={`/bills/${currentUser.username}/${b.id}`}
+								key={b.id}
+							>
 								<div className="bill__li__name--container">
 									<span className="bill_preview--name">{b.bill_name}</span>
 								</div>
@@ -43,7 +47,7 @@ const MyBills = () => {
 							</Link>
 						))}
 					<div className="bill__ft">
-						<span>{username}</span>
+						<span>{currentUser.username}</span>
 					</div>
 				</div>
 			</div>

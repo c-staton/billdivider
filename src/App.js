@@ -1,28 +1,86 @@
-import { Route, Routes } from "react-router";
-import Bill from "./MyBills/Bill";
 import "./App.css";
-import CreateBill from "./Create/CreateBill";
-import Home from "./Home/Home";
-import MyBills from "./MyBills/MyBills";
-import NavBar from "./NavBar";
-import Login from "./Login";
-import Register from "./Register";
-import BillEdit from "./MyBills/BillEdit";
+import { useEffect, useState } from "react";
+import useLocalStorage from "./hooks/useLocalStorage";
+import UserContext from "./auth/UserContext";
+import BillsApi from "./Api";
+import { decodeToken } from "react-jwt";
+import AllRoutes from "./Routes-nav/Routes";
+import NavBar from "./Routes-nav/NavBar";
+
+// Key name for storing token in localStorage for "remember me" re-login
+export const TOKEN_STORAGE_ID = "bills-token";
 
 function App() {
+	const [currentUser, setCurrentUser] = useState(null);
+	const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
+
+	useEffect(
+		function loadUserInfo() {
+			console.debug("App useEffect loadUserInfo", "token=", token);
+			async function getCurrentUser() {
+				if (token) {
+					try {
+						let { username } = decodeToken(token);
+						// put the token on the Api class so it can use it to call the API.
+						BillsApi.token = token;
+						let currentUser = await BillsApi.getCurrentUser(username);
+						setCurrentUser(currentUser);
+					} catch (err) {
+						console.error("App loadUserInfo: problem loading", err);
+						setCurrentUser(null);
+					}
+				}
+			}
+			getCurrentUser();
+		},
+		[token]
+	);
+
+	/** Handles site-wide logout. */
+	function logout() {
+		setCurrentUser(null);
+		setToken(null);
+	}
+
+	/** Handles site-wide signup.
+	 *
+	 * Automatically logs them in (set token) upon signup.
+	 *
+	 * Make sure you await this function and check its return value!
+	 */
+	async function signup(signupData) {
+		try {
+			let token = await BillsApi.signup(signupData);
+			setToken(token);
+			return { success: true };
+		} catch (errors) {
+			console.error("signup failed", errors);
+			return { success: false, errors };
+		}
+	}
+
+	/** Handles site-wide login.
+	 *
+	 * Make sure you await this function and check its return value!
+	 */
+	async function login(loginData) {
+		try {
+			let token = await BillsApi.login(loginData);
+			setToken(token);
+			return { success: true };
+		} catch (errors) {
+			console.error("login failed", errors);
+			return { success: false, errors };
+		}
+	}
+
 	return (
-		<div className="App">
-			<NavBar />
-			<Routes>
-				<Route path="/" exact element={<Home />} />
-				<Route path="/new" exact element={<CreateBill />} />
-				<Route path="/bills" exact element={<MyBills />} />
-				<Route path="/bills/:username/:id" exact element={<Bill />} />
-				<Route path="/bills/:username/:id/edit" exact element={<BillEdit />} />
-				<Route path="/login" exact element={<Login />} />
-				<Route path="/register" exact element={<Register />} />
-			</Routes>
-		</div>
+		<UserContext.Provider value={{ currentUser, setCurrentUser }}>
+			<div className="App">
+				<NavBar logout={logout} />
+				<AllRoutes login={login} signup={signup} />
+			</div>
+		</UserContext.Provider>
 	);
 }
 

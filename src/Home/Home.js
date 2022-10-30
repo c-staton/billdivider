@@ -1,15 +1,12 @@
 import React from "react";
 import "./Home.css";
 import sample from "../images/sample.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 	return (
 		<div className="wrap">
 			<div className="home-box">
-				<div className="home-box--left">
-					<h1>Instantly Divide Your Bill</h1>
-					<button className="form-btn">Create an account</button>
-				</div>
 				<div>
 					<img
 						src={sample}
@@ -17,6 +14,17 @@ const Home = () => {
 						width="100%"
 						className="bill-sample"
 					/>
+				</div>
+				<div className="home-box--right">
+					<h1>Instantly Divide Your Bill</h1>
+					<div className="home-box__buttons">
+						<Link to="/new" className="form-btn">
+							Create New Bill
+						</Link>
+						<Link to="/bills" className="form-btn">
+							My Bills
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>

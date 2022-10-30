@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { toWordsOrdinal } from "number-to-words";
-import NewFieldForm from "../NewFieldForm";
+import NewFieldForm from "./NewFieldForm";
 import "./styles/CreateBill.css";
 import { Link } from "react-router-dom";
 import BillsApi from "../Api";
+import UserContext from "../auth/UserContext";
 
 const CreateBill = () => {
 	const [count, setCount] = useState(1);
@@ -12,6 +13,8 @@ const CreateBill = () => {
 	const [haveName, setHaveName] = useState(false);
 	const [billName, setBillName] = useState("");
 	const [splitBy, setSplitBy] = useState("");
+
+	const { currentUser } = useContext(UserContext);
 
 	const navigate = useNavigate();
 
@@ -40,7 +43,7 @@ const CreateBill = () => {
 		e.preventDefault();
 		if (haveName) {
 			const result = await BillsApi.create(
-				"cstaton",
+				currentUser.username,
 				inputs,
 				billName,
 				splitBy

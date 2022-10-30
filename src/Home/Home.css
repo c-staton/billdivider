@@ -6,13 +6,31 @@
     width: 100%;
     padding: 0px 100px;
     box-sizing: border-box;
+    gap: 50px;
 }
 
 .home-box div {
     width: 50%;
 }
 
-.home-box--left {
+.home-box--right {
     font-size: 40px;
     text-align: left;
+}
+
+.home-box--right h1 {
+    margin: 0;
+}
+
+.home-box__buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.home-box__buttons a {
+    transition: all .4s ease-in-out;
+}
+
+.home-box__buttons a:hover {
+    transform: scale(1.1);
 }
