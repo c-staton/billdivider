@@ -1,0 +1,26 @@
+.print h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.print__body {
+    padding: 50px;
+}
+
+.print__body--table {
+    margin: auto;
+}
+
+.print__body--info {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.print__body--tag {
+    text-align: center;
+}
+
+.print__body--tag a {
+    text-decoration: none;
+    color: black;
+}

@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import "./auth.css";
+import UserContext from "./UserContext";
 
 const Login = ({ login }) => {
 	const [formData, setFormData] = useState({ username: "", password: "" });
 	const navigate = useNavigate();
+	const { currentUser } = useContext(UserContext);
+
+	useEffect(() => {
+		if (currentUser) {
+			navigate("/bills");
+		}
+	}, [currentUser, navigate]);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;

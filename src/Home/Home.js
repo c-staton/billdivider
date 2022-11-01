@@ -18,10 +18,10 @@ const Home = () => {
 				<div className="home-box--right">
 					<h1>Instantly Divide Your Bill</h1>
 					<div className="home-box__buttons">
-						<Link to="/new" className="form-btn">
+						<Link to="/new" className="form-btn btn-scale">
 							Create New Bill
 						</Link>
-						<Link to="/bills" className="form-btn">
+						<Link to="/bills" className="form-btn btn-scale">
 							My Bills
 						</Link>
 					</div>

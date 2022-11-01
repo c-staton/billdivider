@@ -16,7 +16,7 @@ $gray: #9b9b9b;
   border-radius: 20px;
   animation-name: popUp;
   animation-duration: 1s;
-  margin-bottom: 150px;
+  margin: 100px 0;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
   #{&}__header {
@@ -145,4 +145,23 @@ $gray: #9b9b9b;
 
 .card__footer a {
   color: $primary;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+      width: 80%;
+      padding: 15px;
+  }
+
+  .card .card__header {
+      font-size: 50px;
+  }
+
+  .table {
+      width: 100%;
+  }
+
+  .table input, .table {
+      font-size: 16px;
+  }
 }

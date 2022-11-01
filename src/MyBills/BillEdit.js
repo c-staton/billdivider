@@ -111,12 +111,12 @@ const BillEdit = () => {
 
 				<div className="bill__footer">
 					<button
-						className="form-btn"
+						className="form-btn btn-scale"
 						onClick={() => navigate(`/bills/${username}/${id}`)}
 					>
 						Cancel
 					</button>
-					<button className="form-btn" type="submit">
+					<button className="form-btn btn-scale" type="submit">
 						Save Changes
 					</button>
 				</div>

@@ -45,6 +45,14 @@
   gap: 20px;
 }
 
+.btn-scale {
+  transition: all .4s ease-in-out;
+}
+
+.btn-scale:hover {
+  transform: scale(1.1);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -53,3 +61,4 @@
     transform: rotate(360deg);
   }
 }
+

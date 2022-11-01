@@ -15,13 +15,13 @@ function App() {
 	const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
 	useEffect(
+		/** On page render, and token change load current user */
 		function loadUserInfo() {
 			console.debug("App useEffect loadUserInfo", "token=", token);
 			async function getCurrentUser() {
 				if (token) {
 					try {
 						let { username } = decodeToken(token);
-						// put the token on the Api class so it can use it to call the API.
 						BillsApi.token = token;
 						let currentUser = await BillsApi.getCurrentUser(username);
 						setCurrentUser(currentUser);
@@ -46,7 +46,7 @@ function App() {
 	 *
 	 * Automatically logs them in (set token) upon signup.
 	 *
-	 * Make sure you await this function and check its return value!
+	 * Make sure you await this function and check its return value
 	 */
 	async function signup(signupData) {
 		try {
@@ -61,7 +61,7 @@ function App() {
 
 	/** Handles site-wide login.
 	 *
-	 * Make sure you await this function and check its return value!
+	 * Make sure you await this function and check its return value
 	 */
 	async function login(loginData) {
 		try {

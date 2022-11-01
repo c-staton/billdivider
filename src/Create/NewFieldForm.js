@@ -77,7 +77,7 @@ const NewFieldForm = ({
 						# of People
 					</label>
 				</div>
-				<button className="form-btn create-btn">Create Bill</button>
+				<button className="form-btn btn-scale">Create Bill</button>
 			</form>
 		);
 	} else
@@ -137,7 +137,7 @@ const NewFieldForm = ({
 						Amount
 					</label>
 				</div>
-				<button className="form-btn finishBtn">Add</button>
+				<button className="form-btn btn-scale">Add Cost</button>
 			</form>
 		);
 };

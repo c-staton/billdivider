@@ -117,16 +117,27 @@
     gap: 5px;
 }
 
-.bill__footer a {
-    color: black;
-}
-
-.bill__footer a:hover {
-    color: #11998e;
-}
-
 .bill__footer--right {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .billdetails__card {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .bill__header h1 {
+        font-size: 30px;
+    }
+
+    .table {
+        width: 100%;
+    }
+
+    .table input, .table {
+        font-size: 16px;
+    }
 }
