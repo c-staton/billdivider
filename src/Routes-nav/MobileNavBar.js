@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./MobileNavBar.css";
 import menuIcon from "../images/hamburger.png";
 import { Link, NavLink } from "react-router-dom";
