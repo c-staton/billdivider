@@ -73,6 +73,8 @@
     .home-box--right h1 {
         text-align: center;
         margin: auto;
+        margin-top: 50px;
+        margin-bottom: 20px;
         width: 100%;
     }
 

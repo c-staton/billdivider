@@ -6,6 +6,7 @@ import BillsApi from "./Api";
 import { decodeToken } from "react-jwt";
 import AllRoutes from "./Routes-nav/Routes";
 import NavBar from "./Routes-nav/NavBar";
+import MobileNavBar from "./Routes-nav/MobileNavBar";
 
 // Key name for storing token in localStorage for "remember me" re-login
 export const TOKEN_STORAGE_ID = "bills-token";
@@ -13,6 +14,15 @@ export const TOKEN_STORAGE_ID = "bills-token";
 function App() {
 	const [currentUser, setCurrentUser] = useState(null);
 	const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
+	const [matches, setMatches] = useState(
+		window.matchMedia("(min-width: 800px)").matches
+	);
+
+	useEffect(() => {
+		window
+			.matchMedia("(min-width: 800px)")
+			.addEventListener("change", (e) => setMatches(e.matches));
+	}, []);
 
 	useEffect(
 		/** On page render, and token change load current user */
@@ -77,7 +87,8 @@ function App() {
 	return (
 		<UserContext.Provider value={{ currentUser, setCurrentUser }}>
 			<div className="App">
-				<NavBar logout={logout} />
+				{!matches && <MobileNavBar logout={logout} />}
+				{matches && <NavBar logout={logout} />}
 				<AllRoutes login={login} signup={signup} />
 			</div>
 		</UserContext.Provider>
