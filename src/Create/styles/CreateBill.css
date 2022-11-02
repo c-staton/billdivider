@@ -204,6 +204,39 @@
   color: #11998e;
 }
 
+.delete-btn {
+  margin: 20px 0;
+  background: -webkit-gradient(linear, left top, right bottom, from(#8B0000), to(#FF7276));
+  background: linear-gradient(to bottom right, #8B0000, #FF7276);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  white-space: nowrap;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.delete-btn:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
 @media screen and (max-width: 800px) {
   .card {
     width: 80%;

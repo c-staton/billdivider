@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import BillsApi from "../Api";
 import "./Bill.css";
 
@@ -60,6 +61,11 @@ const BillEdit = () => {
 		navigate(`/bills/${username}/${id}`);
 	};
 
+	const deleteBill = async () => {
+		const result = await BillsApi.delete(username, id);
+		console.log(result);
+	};
+
 	return (
 		<div className="wrap">
 			<form className="billdetails__card" onSubmit={handleSubmit}>
@@ -116,6 +122,13 @@ const BillEdit = () => {
 					>
 						Cancel
 					</button>
+					<Link
+						to={`/bills/${username}`}
+						onClick={deleteBill}
+						className="delete-btn"
+					>
+						Delete Bill
+					</Link>
 					<button className="form-btn btn-scale" type="submit">
 						Save Changes
 					</button>

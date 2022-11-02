@@ -70,6 +70,18 @@ class BillsApi {
 		return bill;
 	}
 
+	/** Delete a bill */
+	static async delete(username, id) {
+		const result = await this.request(
+			`bills/${username}/${id}`,
+			{
+				id,
+			},
+			"delete"
+		);
+		return result;
+	}
+
 	/** Get a specific bill by id */
 	static async getBillById(username, billId) {
 		const result = await this.request(`bills/${username}/${billId}`);
