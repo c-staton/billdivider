@@ -57,7 +57,7 @@ const MobileNavBar = ({ logout }) => {
 		<div className={`mobile-nav ${isNavExpanded ? "bg-white" : null}`}>
 			<div className="top-bar">
 				<div>
-					<h1>Bill Divider</h1>
+					<h1 className="mobile-nav__h1">Bill Divider</h1>
 				</div>
 				<div>
 					<button onClick={switchState} className="mobile-nav__btn">

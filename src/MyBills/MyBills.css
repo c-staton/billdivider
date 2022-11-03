@@ -110,6 +110,10 @@
     height: 100%;
 }
 
+.no-bills a {
+    color: black;
+}
+
 @media screen and (max-width: 800px) {
     .allbills__card {
         width: 80%;

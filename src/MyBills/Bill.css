@@ -111,10 +111,11 @@
 
 .bill__footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 90%;
     align-items: center;
     gap: 5px;
+    flex-wrap: wrap;
 }
 
 .bill__footer--right {
