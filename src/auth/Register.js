@@ -23,7 +23,7 @@ const Register = ({ signup }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		signup(formData);
-		navigate("/");
+		navigate("/bills");
 	};
 
 	return (

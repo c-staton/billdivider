@@ -26,7 +26,7 @@ const Login = ({ login }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		login(formData);
-		navigate("/");
+		navigate("/bills");
 	};
 
 	return (
