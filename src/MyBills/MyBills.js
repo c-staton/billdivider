@@ -29,6 +29,12 @@ const MyBills = () => {
 						<div>Name</div>
 						<div>Date Created</div>
 					</div>
+
+					{bills.length === 0 ? (
+						<p className="no-bills">
+							You have no bills, <Link to="/new">try making one</Link>
+						</p>
+					) : null}
 					{bills
 						.slice(0)
 						.reverse()

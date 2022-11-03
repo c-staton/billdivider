@@ -10,6 +10,8 @@
     z-index: 10;
     top: 0px;
     font-size: 20px;
+    padding: 20px 50px;
+    box-sizing: border-box;
 }
 
 .navbar a {
@@ -27,5 +29,4 @@
     display: flex;
     justify-content: center;
     gap: 50px;
-    width: 25%;
 }

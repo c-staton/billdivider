@@ -99,11 +99,15 @@
 
 .bill_preview__card:last-child {
     border-radius: 20px;
-    background-color: #38ef7d;
 }
 
 .bill_preview {
     margin-bottom: 20px;
+}
+
+.no-bills {
+    background-color: white;
+    height: 100%;
 }
 
 @media screen and (max-width: 800px) {
